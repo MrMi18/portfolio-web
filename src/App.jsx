@@ -1,10 +1,11 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
-import About from './components/About'
 import Tech from './components/Tech'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import AboutMe from './components/AboutMe'
+import MyStudio from './components/MyStudio'
 
 const App = () => {
   return (
@@ -12,8 +13,18 @@ const App = () => {
       <Navbar />
       <main className='mx-auto w-full max-w-screen-lg px-4'>
         <Hero />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mt-16">
+          {/* Left Column - About Me */}
+          <div>
+            <AboutMe />
+          </div>
+
+          {/* Right Column - My Studio */}
+          <div>
+            <MyStudio />
+          </div>
+        </div>
         <Projects />
-        <About />
         <Tech />
         <Contact />
         <Footer />
