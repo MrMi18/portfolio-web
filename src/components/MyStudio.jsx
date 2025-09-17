@@ -24,7 +24,7 @@ function MyStudio() {
         <Download size={16} className="mr-2" />
         <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
       </Button>
-      
+
       <div className="grid grid-cols-1 gap-4">
         <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-600/30">
           <div className="flex items-center gap-2 mb-2">
