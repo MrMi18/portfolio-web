@@ -1,65 +1,141 @@
-import React from 'react'
+import { useState, useEffect } from "react";
+import { Menu, X, Home, User, Briefcase, Code, Mail } from "lucide-react";
+import { Button } from "./ui/button";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false)
+ const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const navItems = [
-    { label: 'Home', href: '#' },
-    { label: 'My work', href: '#work' },
-    { label: 'Blog', href: '#blog' },
-  ]
+    { name: "Home", href: "#home", icon: Home },
+    { name: "About", href: "#about", icon: User },
+    { name: "Projects", href: "#projects", icon: Briefcase },
+    { name: "Skills", href: "#skills", icon: Code },
+    { name: "Contact", href: "#contact", icon: Mail }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    const handleSectionObserver = () => {
+      const sections = ["home", "about", "projects", "skills", "contact"];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleSectionObserver);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleSectionObserver);
+    };
+  }, []);
+
+  const scrollToSection = (href) => {
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop - 80; // Account for navbar height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+    }
+     
+    setIsMobileMenuOpen(false);
+  };
 
   return (
-    <header className='sticky top-0 z-50 w-full bg-transparent'>
-      <div className='mx-auto flex max-w-6xl items-center justify-between px-4 py-4'>
-        <a href='#' className='text-white text-2xl font-extrabold tracking-wider'>MI.</a>
+    <>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? "bg-gray-900/95 backdrop-blur-md border-b border-gray-700/50 shadow-lg" 
+          : "bg-transparent"
+      }`}>
+        <div className="max-w-7xl mx-auto px-8 md:px-16">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
+                <span className="text-white text-sm">I</span>
+              </div>
+              <span className="text-white text-lg">imran.dev</span>
+            </div>
 
-        <nav className='hidden md:flex items-center gap-6'>
-          {navItems.map((item) => (
-            <a key={item.label} href={item.href} className='text-white/80 hover:text-white transition-colors text-sm'>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className='hidden md:flex items-center gap-4'>
-          <a href='#settings' className='text-white/80 hover:text-white transition-colors text-sm'>Settings</a>
-          <a href='#contact' className='inline-flex items-center rounded-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-sm font-semibold transition'>Hire me</a>
-        </div>
-
-        <button
-          type='button'
-          aria-label='Toggle menu'
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((v) => !v)}
-          className='md:hidden inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20'
-        >
-          <svg className={`h-6 w-6 ${isOpen ? 'hidden' : 'block'}`} fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M4 6h16M4 12h16M4 18h16' />
-          </svg>
-          <svg className={`h-6 w-6 ${isOpen ? 'block' : 'hidden'}`} fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
-          </svg>
-        </button>
-      </div>
-
-      {isOpen && (
-        <div className='md:hidden border-t border-white/10 bg-black/90'>
-          <div className='mx-auto max-w-6xl px-4 py-3'>
-            <nav className='flex flex-col gap-3'>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-1">
               {navItems.map((item) => (
-                <a key={item.label} href={item.href} className='text-white/90 hover:text-white transition-colors text-base'>
-                  {item.label}
-                </a>
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`px-4 py-2 rounded-lg text-sm transition-all duration-200 flex items-center gap-2 ${
+                    activeSection === item.href.substring(1)
+                      ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
+                      : "text-white/70 hover:text-white hover:bg-gray-800/50"
+                  }`}
+                >
+                  <item.icon size={16} />
+                  {item.name}
+                </button>
               ))}
-              <a href='#settings' className='text-white/90 hover:text-white transition-colors text-base'>Settings</a>
-              <a href='#contact' className='inline-flex items-center rounded-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-sm font-semibold transition'>Hire me</a>
-            </nav>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden text-white/70 hover:text-white hover:bg-gray-800/50"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </Button>
           </div>
         </div>
-      )}
-    </header>
-  )
+
+        {/* Mobile Menu */}
+        <div className={`md:hidden transition-all duration-300 overflow-hidden ${
+          isMobileMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+        }`}>
+          <div className="bg-gray-900/95 backdrop-blur-md border-t border-gray-700/50 px-8 py-4">
+            <div className="space-y-2">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`w-full text-left px-4 py-3 rounded-lg text-sm transition-all duration-200 flex items-center gap-3 ${
+                    activeSection === item.href.substring(1)
+                      ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
+                      : "text-white/70 hover:text-white hover:bg-gray-800/50"
+                  }`}
+                >
+                  <item.icon size={18} />
+                  {item.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Spacer to prevent content from going under fixed navbar */}
+      <div className="h-16"></div>
+    </>
+  );
 }
 
 export default Navbar

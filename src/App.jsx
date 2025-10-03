@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import AboutMe from './components/AboutMe'
 import MyStudio from './components/MyStudio'
 import Skills from './components/Tech'
+import './App.css'
 
 const App = () => {
   return (
