@@ -1,9 +1,11 @@
 import { Button } from "./ui/button";
 import { Download, Code, Palette } from "lucide-react";
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 function MyStudio() {
+  const scrollRef = useScrollReveal();
   return (
-    <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700/50 backdrop-blur-sm">
+    <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50 backdrop-blur-sm animate-slide-up scroll-reveal" ref={scrollRef}>
       <div className="flex items-center gap-2 mb-4">
         <div className="w-6 h-6 bg-orange-500 rounded flex items-center justify-center">
           <Code size={14} className="text-white" />

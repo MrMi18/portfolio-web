@@ -37,7 +37,7 @@ const Footer = () => {
               with modern technologies. Always ready for the next challenge.
             </p>
             <div className="flex items-center gap-2 text-sm text-white/60">
-              <span>📍 Bangalore, India</span>
+              <span>📍 Nagpur, India</span>
             </div>
           </div>
 

@@ -5,8 +5,10 @@ import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { Mail, MessageCircle, Send, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Contact = () => {
+  const scrollRef = useScrollReveal();
     const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -64,14 +66,14 @@ const Contact = () => {
 
   return (
     <div className="space-y-8 my-20">
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex items-center gap-3 mb-8 animate-fade-in">
         <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
           <Mail size={18} className="text-white" />
         </div>
         <h2 className="text-2xl text-white">Contact me.</h2>
       </div>
       
-      <div className="mb-8">
+      <div className="mb-8 animate-slide-up">
         <p className="text-white/80 leading-relaxed">
           I'm always eager to explore new opportunities and take on exciting projects. If you have a project in 
           mind, or just want to say hi, feel free to send me a message.
@@ -79,7 +81,7 @@ const Contact = () => {
       </div>
 
       {/* Contact Form */}
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6 animate-slide-up" style={{ animationDelay: "0.1s" }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Name Field */}
           <div className="space-y-2">
@@ -94,7 +96,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleInputChange}
               required
-              className="bg-gray-800/50 border-gray-700/50 text-white placeholder:text-gray-400 focus:border-orange-400 focus:ring-orange-400/20"
+              className="bg-gray-800/50 border-gray-700/50 text-white placeholder:text-gray-400 focus:border-orange-400 focus:ring-orange-400/20 rounded-lg"
             />
           </div>
 
@@ -111,7 +113,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleInputChange}
               required
-              className="bg-gray-800/50 border-gray-700/50 text-white placeholder:text-gray-400 focus:border-orange-400 focus:ring-orange-400/20"
+              className="bg-gray-800/50 border-gray-700/50 text-white placeholder:text-gray-400 focus:border-orange-400 focus:ring-orange-400/20 rounded-lg"
             />
           </div>
         </div>
@@ -131,7 +133,7 @@ const Contact = () => {
               required
               maxLength={maxChars}
               rows={6}
-              className="bg-gray-800/50 border-gray-700/50 text-white placeholder:text-gray-400 focus:border-orange-400 focus:ring-orange-400/20 resize-none"
+              className="bg-gray-800/50 border-gray-700/50 text-white placeholder:text-gray-400 focus:border-orange-400 focus:ring-orange-400/20 resize-none rounded-lg"
             />
             <div className="absolute bottom-3 right-3 text-xs text-gray-400">
               {charCount}/{maxChars} characters

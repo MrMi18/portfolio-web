@@ -2,9 +2,12 @@ import { ExternalLink, Github, Layers } from "lucide-react";
 import { Button } from "./ui/button";
 import dishifySc from '../assets/dishify-sc.png'
 import brosolveSc from '../assets/brosolve-sc.png'
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 
 const Projects = () => {
+  const scrollRef = useScrollReveal();
+  
  const projects = [
     {
       id: 1,
@@ -29,8 +32,8 @@ const Projects = () => {
   ];
 
   return (
-    <div className="space-y-8 my-16">
-      <div className="flex items-center gap-3 mb-8">
+    <div className="space-y-8 my-16 scroll-reveal" ref={scrollRef}>
+      <div className="flex items-center gap-3 mb-8 animate-fade-in">
         <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
           <Layers size={18} className="text-white" />
         </div>
@@ -38,10 +41,11 @@ const Projects = () => {
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <div
             key={project.id}
-            className="bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm overflow-hidden group hover:border-gray-600/50 transition-all duration-300 hover:transform hover:scale-[1.02]"
+            className="bg-gray-800/50 rounded-2xl border border-gray-700/50 backdrop-blur-sm overflow-hidden group hover:border-gray-600/50 transition-all duration-300 hover:transform hover:scale-[1.02] animate-slide-up"
+            style={{ animationDelay: `${index * 0.1}s` }}
           >
             {/* Project Image */}
             <div className="relative h-48 overflow-hidden"

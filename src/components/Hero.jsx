@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'motion/react'
 import profileImage from '../assets/profile.jpg'
 
 const Hero = () => {
@@ -15,7 +16,12 @@ const Hero = () => {
       {/* Main content */}
       <div className="relative z-10 flex items-center justify-between min-h-screen px-8 md:px-16">
         {/* Left content */}
-        <div className="flex-1 max-w-2xl text-white">
+        <motion.div 
+          className="flex-1 max-w-2xl text-white"
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
+        >
           {/* About Me Section */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
@@ -56,12 +62,17 @@ const Hero = () => {
           <div className="italic text-white/60 font-mono">
             Keep moving, don't settle. <span className="inline-block">🚀</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right side - Profile Image */}
-        <div className="flex-shrink-0 ml-8">
+        <motion.div 
+          className="flex-shrink-0 ml-8"
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+        >
           <div className="relative">
-            <div className="w-80 h-96 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl">
+            <div className="w-80 h-96 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl hover-scale">
               <img 
                 src={profileImage} 
                 alt="Imran - FullStack Developer"
@@ -71,7 +82,7 @@ const Hero = () => {
             {/* Subtle glow effect */}
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none"></div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Decorative elements */}

@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Menu, X, Home, User, Briefcase, Code, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 
-const Navbar = () => {
- const [isScrolled, setIsScrolled] = useState(false);
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -38,7 +38,6 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleSectionObserver);
-    
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scroll", handleSectionObserver);
@@ -48,28 +47,22 @@ const Navbar = () => {
   const scrollToSection = (href) => {
     const targetId = href.substring(1);
     const targetElement = document.getElementById(targetId);
-    
     if (targetElement) {
-      const offsetTop = targetElement.offsetTop - 80; // Account for navbar height
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth"
-      });
+      const offsetTop = targetElement.offsetTop - 80;
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
     }
-     
     setIsMobileMenuOpen(false);
   };
 
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-gray-900/95 backdrop-blur-md border-b border-gray-700/50 shadow-lg" 
+        isScrolled
+          ? "bg-gray-900/95 backdrop-blur-md border-b border-gray-700/50 shadow-lg"
           : "bg-transparent"
       }`}>
         <div className="max-w-7xl mx-auto px-8 md:px-16">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
                 <span className="text-white text-sm">I</span>
@@ -77,7 +70,6 @@ const Navbar = () => {
               <span className="text-white text-lg">imran.dev</span>
             </div>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
               {navItems.map((item) => (
                 <button
@@ -95,7 +87,6 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="sm"
@@ -107,7 +98,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <div className={`md:hidden transition-all duration-300 overflow-hidden ${
           isMobileMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}>
@@ -132,10 +122,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Spacer to prevent content from going under fixed navbar */}
       <div className="h-16"></div>
     </>
   );
 }
-
-export default Navbar
