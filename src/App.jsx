@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
@@ -33,6 +34,11 @@ const App = () => {
           </div>
         </section>
 
+        {/* Experience Section */}
+        <section id="experience" className="py-16">
+          <Experience />
+        </section>
+
         {/* Projects Section */}
         <section id="projects" className="py-16">
           <Projects />
@@ -47,9 +53,9 @@ const App = () => {
         <section id="contact" className="py-16">
           <Contact />
         </section>
-
-        <Footer />
-      </main> 
+      </main>
+      
+      <Footer /> 
     </div>
   )
 }

@@ -14,14 +14,14 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: "GitHub", icon: Github, href: "#" },
-    { name: "Email", icon: Mail, href: "mailto:imran@example.com" },
+    { name: "GitHub", icon: Github, href: "https://github.com/MrMi18" },
+    { name: "Email", icon: Mail, href: "mailto:imran.mohd1910@.gmail.com" },
     { name: "Discord", icon: MessageCircle, href: "#" }
   ];
 
   return (
-    <footer className="relative border-t border-gray-700/30 bg-gray-900/50 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-8 md:px-16 py-12">
+    <footer className="relative border-t border-gray-700/30 bg-gray-900/50 backdrop-blur-sm w-full">
+      <div className="px-8 md:px-16 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}

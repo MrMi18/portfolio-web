@@ -10,6 +10,7 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "#home", icon: Home },
     { name: "About", href: "#about", icon: User },
+    { name: "Experience", href: "#experience", icon: Briefcase },
     { name: "Projects", href: "#projects", icon: Briefcase },
     { name: "Skills", href: "#skills", icon: Code },
     { name: "Contact", href: "#contact", icon: Mail }
@@ -21,7 +22,7 @@ export default function Navbar() {
     };
 
     const handleSectionObserver = () => {
-      const sections = ["home", "about", "projects", "skills", "contact"];
+      const sections = ["home", "about", "experience", "projects", "skills", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {

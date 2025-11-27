@@ -11,38 +11,37 @@ const AboutMe = () => {
 
         <div className="space-y-4 text-white/80 leading-relaxed">
           <p>
-            I have been coding for over 5 years, beginning my
-            journey in 2020. Initially, I learned HTML, CSS,
-            and JavaScript to build websites.
+            I'm a passionate <span className="text-orange-400">Full Stack Developer</span> from Nagpur, India, with a strong foundation in building scalable web applications. My journey into web development started in 2020 with HTML, CSS, and JavaScript, and has evolved into specializing in modern full-stack technologies.
           </p>
 
           <p>
-            My first project was a simple website built with
-            HTML, CSS, and JavaScript (~mid-2020).
+            My first project was a simple website built with vanilla technologies, which sparked my passion for creating interactive digital experiences. As I progressed, I deepened my expertise in <span className="text-orange-400">React.js and Next.js</span>, enabling me to build sophisticated SaaS applications and real-world solutions.
           </p>
 
           <p>
-            As I progressed, I focused heavily on React.js and
-            Next.js. Now, I specialize in building SaaS
-            applications with modern web technologies.
+            Today, I focus on building fast, accessible, and delightful web experiences. I'm proficient in both frontend and backend development, with experience in databases, API design, authentication, and DevOps. I believe in writing clean, maintainable code and continuously learning new technologies to stay ahead in this fast-paced industry.
+          </p>
+
+          <p>
+            When I'm not coding, I enjoy exploring new frameworks, contributing to open-source projects, and sharing knowledge with the developer community. I'm always excited about opportunities to collaborate and build products that make a real impact.
           </p>
         </div>
       </div>
 
-      <div className="flex items-center gap-6 pt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
         <Button
           onClick={() => window.open("https://github.com/MrMi18", "_blank", "noopener,noreferrer")}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg flex items-center gap-2 transition-colors hover-scale"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors hover-scale justify-center"
         >
           <Github size={18} />
           View my Github
           <ArrowRight size={16} />
         </Button>
 
-        <button className="text-white/80 hover:text-white transition-colors flex items-center gap-2">
-          Contact me
+        <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors font-semibold">
+          Let's Connect
           <ArrowRight size={16} />
-        </button>
+        </a>
       </div>
     </div>
   );
