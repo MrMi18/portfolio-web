@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Home, User, Briefcase, Code, Mail } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Code, Mail, Folder } from "lucide-react";
 import { Button } from "./ui/button";
 
 export default function Navbar() {
@@ -11,7 +11,7 @@ export default function Navbar() {
     { name: "Home", href: "#home", icon: Home },
     { name: "About", href: "#about", icon: User },
     { name: "Experience", href: "#experience", icon: Briefcase },
-    { name: "Projects", href: "#projects", icon: Briefcase },
+    { name: "Projects", href: "#projects", icon: Folder },
     { name: "Skills", href: "#skills", icon: Code },
     { name: "Contact", href: "#contact", icon: Mail }
   ];

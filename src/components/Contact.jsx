@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { Mail, MessageCircle, Send, ArrowRight } from "lucide-react";
+import { Mail, MessageCircle, Send, ArrowRight, Twitter, Instagram } from "lucide-react";
 import { toast } from "sonner";
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -41,7 +41,7 @@ const Contact = () => {
     {
       name: "Email",
       icon: Mail,
-      href: "mailto:imran.mohd1910@example.com",
+      href: "mailto:imran.mohd1910@gmail.com",
       label: "Email"
     },
     {
@@ -51,21 +51,21 @@ const Contact = () => {
       label: "Discord"
     },
     {
-      name: "Twitter / X",
-      icon: "𝕏",
+      name: "Twitter",
+      icon: Twitter,
       href: "#",
       label: "Twitter / X"
     },
     {
       name: "Instagram",
-      icon: "📷",
+      icon: Instagram,
       href: "https://www.instagram.com/mrmi_18",
       label: "Instagram"
     }
   ];
 
   return (
-    <div className="space-y-8 my-20">
+    <div className="space-y-8 my-20 scroll-reveal" ref={scrollRef}>
       <div className="flex items-center gap-3 mb-8 animate-fade-in">
         <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
           <Mail size={18} className="text-white" />
@@ -166,13 +166,9 @@ const Contact = () => {
           <a
             key={social.name}
             href={social.href}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg border border-gray-700/50 hover:border-gray-600/50 text-white/80 hover:text-white transition-all duration-200 group"
+            className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-full border border-gray-700/50 hover:border-gray-600/50 text-white/80 hover:text-white transition-all duration-200 group"
           >
-            {typeof social.icon === 'string' ? (
-              <span className="text-lg">{social.icon}</span>
-            ) : (
-              <social.icon size={18} />
-            )}
+            <social.icon size={18} />
             <span className="text-sm">{social.label}</span>
             <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
           </a>

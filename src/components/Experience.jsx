@@ -7,37 +7,29 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      role: "Full Stack Developer",
-      company: "Freelance/Personal Projects",
-      period: "2023 - Present",
-      description: "Building scalable web applications using modern technologies. Developed multiple full-stack projects including BroSolve (AI debugging platform) and Dishify (restaurant discovery app). Focused on clean code, responsive design, and optimal performance.",
-      skills: ["React", "Next.js", "Node.js", "MongoDB", "TypeScript", "Firebase"]
+      role: "Full Stack Development Intern",
+      company: "Simulanis Solutions Pvt. Ltd",
+      period: "Aug 2025 - Present",
+      description: "Developed React chatbot frontend for AR/VR applications and implemented real-time screen sharing using WebRTC & Socket.io. Automated HR workflows in ERPNext/Frappe, reducing manual processing by 40%. Managed Docker containerization for seamless dev-to-production deployments.",
+      skills: ["React", "WebRTC", "Socket.io", "ERPNext", "Frappe", "Python", "Docker", "Linux"]
     },
     {
       id: 2,
-      role: "Web Development Enthusiast",
-      company: "Self-Taught Developer",
-      period: "2022 - 2023",
-      description: "Completed comprehensive web development training covering frontend and backend technologies. Built multiple projects to master MERN stack, learned DevOps basics, and contributed to open-source initiatives.",
-      skills: ["JavaScript", "HTML/CSS", "React", "Express", "MongoDB", "Git"]
-    },
-    {
-      id: 3,
-      role: "Learning & Growth Phase",
-      company: "Computer Science Foundation",
-      period: "2020 - 2022",
-      description: "Strong foundation in Data Structures & Algorithms, competitive programming, and core CS concepts. Participated in coding challenges and hackathons to build problem-solving skills.",
-      skills: ["DSA", "Java", "Python", "Problem Solving", "Agile"]
+      role: "Full Stack Web Development Bootcamp",
+      company: "AccioJob",
+      period: "2024 - 2025",
+      description: "Completed intensive bootcamp covering React, Node.js, Express.js, MongoDB, and RESTful API development. Solved 600+ DSA problems and participated in weekly mock interviews to strengthen technical and communication skills.",
+      skills: ["React", "Node.js", "Express.js", "MongoDB", "DSA", "Git", "REST APIs"]
     }
   ];
 
   return (
     <div className="space-y-8 my-16 scroll-reveal" ref={scrollRef}>
-      <div className="flex items-center gap-3 mb-8 animate-fade-in">
+        <div className="flex items-center gap-3 mb-8 animate-fade-in">
         <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
           <Briefcase size={18} className="text-white" />
         </div>
-        <h2 className="text-2xl text-white">Professional Journey</h2>
+        <h2 className="text-2xl text-white">Experience</h2>
       </div>
 
       <div className="space-y-6">

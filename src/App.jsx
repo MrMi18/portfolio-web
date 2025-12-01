@@ -20,8 +20,8 @@ const App = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mt-16">
+        <section id="about" className="py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mt-8">
             {/* Left Column - About Me */}
             <div>
               <AboutMe />
@@ -35,22 +35,22 @@ const App = () => {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-16">
+        <section id="experience" className="py-12">
           <Experience />
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-16">
+        <section id="projects" className="py-12">
           <Projects />
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-16">
+        <section id="skills" className="py-12">
           <Skills />
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-16">
+        <section id="contact" className="py-12">
           <Contact />
         </section>
       </main>

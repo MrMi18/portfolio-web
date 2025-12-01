@@ -15,13 +15,13 @@ const Footer = () => {
 
   const socialLinks = [
     { name: "GitHub", icon: Github, href: "https://github.com/MrMi18" },
-    { name: "Email", icon: Mail, href: "mailto:imran.mohd1910@.gmail.com" },
+    { name: "Email", icon: Mail, href: "mailto:imran.mohd1910@gmail.com" },
     { name: "Discord", icon: MessageCircle, href: "#" }
   ];
 
   return (
     <footer className="relative border-t border-gray-700/30 bg-gray-900/50 backdrop-blur-sm w-full">
-      <div className="px-8 md:px-16 py-12">
+      <div className="px-8 md:px-16 py-12 max-w-7xl mx-auto">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
@@ -66,16 +66,16 @@ const Footer = () => {
                 Ready to work together? Feel free to reach out!
               </p>
               <div className="flex items-center gap-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="w-9 h-9 bg-gray-800/50 hover:bg-orange-500/20 border border-gray-700/50 hover:border-orange-500/50 rounded-lg flex items-center justify-center text-white/70 hover:text-orange-400 transition-all duration-200 hover:scale-110"
-                    title={social.name}
-                  >
-                    <social.icon size={16} />
-                  </a>
-                ))}
+                        {socialLinks.map((social) => (
+                              <a
+                                key={social.name}
+                                href={social.href}
+                                className="w-9 h-9 bg-gray-800/50 hover:bg-orange-500/20 border border-gray-700/50 hover:border-orange-500/50 rounded-full flex items-center justify-center text-white/70 hover:text-orange-400 transition-all duration-200 hover:scale-110"
+                                title={social.name}
+                              >
+                                <social.icon size={16} />
+                              </a>
+                            ))}
               </div>
             </div>
           </div>
@@ -84,14 +84,14 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-gray-700/30 gap-4">
           <div className="flex items-center gap-2 text-white/60 text-sm">
-            <span>© 2024 Imran. Made with</span>
-            <Heart size={14} className="text-red-400 fill-current" />
+            <span>© 2025 Imran. Made with</span>
+            <Heart size={14} className="text-red-400" />
             <span>and lots of ☕</span>
           </div>
           
           <div className="flex items-center gap-4">
             <span className="text-white/40 text-xs">
-              Built with React, Next.js & TailwindCSS
+              Built with React & TailwindCSS
             </span>
             <Button
               onClick={scrollToTop}

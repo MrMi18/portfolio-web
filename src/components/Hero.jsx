@@ -5,7 +5,7 @@ import { Github, Linkedin, X, Instagram } from 'lucide-react'
 
 const Hero = () => {
       return (
-    <div className="relative overflow-hidden rounded-3xl border border-gray-700/30">
+    <div className="relative overflow-hidden rounded-3xl border border-gray-700/30 ">
       {/* Background with overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         <div className="absolute inset-0 bg-black/40"></div>
@@ -15,7 +15,7 @@ const Hero = () => {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center py-16 md:py-20 px-6 md:px-8">
+      <div className="relative z-10 flex flex-col items-center pt-4 md:pt-8 pb-16 md:pb-20 px-6 md:px-8">
         <div className="w-full max-w-7xl mx-auto">
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
@@ -40,15 +40,15 @@ const Hero = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              <a href="#" className="p-2 rounded-full bg-gray-800/50 hover:bg-orange-500/20 border border-white/10 text-white/80 transition"><Github size={18} /></a>
-              <a href="#" className="p-2 rounded-full bg-gray-800/50 hover:bg-blue-600/10 border border-white/10 text-white/80 transition"><Linkedin size={18} /></a>
+              <a href="https://github.com/mrmi18" className="p-2 rounded-full bg-gray-800/50 hover:bg-orange-500/20 border border-white/10 text-white/80 transition"><Github size={18} /></a>
+              <a href="https://www.linkedin.com/in/imran-mohammad-360a2122a" className="p-2 rounded-full bg-gray-800/50 hover:bg-blue-600/10 border border-white/10 text-white/80 transition"><Linkedin size={18} /></a>
               <a href="#" className="p-2 rounded-full bg-gray-800/50 hover:bg-pink-500/10 border border-white/10 text-white/80 transition"><X size={18} /></a>
-              <a href="#" className="p-2 rounded-full bg-gray-800/50 hover:bg-pink-500/10 border border-white/10 text-white/80 transition"><Instagram size={18} /></a>
+              <a href="https://www.instagram.com/mrmi_18" className="p-2 rounded-full bg-gray-800/50 hover:bg-pink-500/10 border border-white/10 text-white/80 transition"><Instagram size={18} /></a>
             </div>
 
             <div className="hidden md:block mt-2 space-y-2">
-              <button className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-white bg-transparent hover:bg-white/5 transition">Work With Me</button>
-              <a href="/resume_mohammad_imran.pdf" download className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/10 text-white hover:bg-white/15 transition border border-white/10">
+                     <button className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-white bg-transparent hover:bg-white/5 transition">Hire me</button>
+                     <a href="/resume.pdf" download className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/10 text-white hover:bg-white/15 transition border border-white/10">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2m0 0v-8m0 8l-6-4m6 4l6-4" /></svg>
                 Download Resume
               </a>
@@ -73,13 +73,13 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
+    </div>
 
       {/* Decorative elements */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
       <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/30 rounded-full animate-pulse"></div>
       <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-white/40 rounded-full animate-pulse delay-1000"></div>
       <div className="absolute bottom-1/3 left-1/2 w-1.5 h-1.5 bg-white/20 rounded-full animate-pulse delay-500"></div>
-    </div>
     </div>
   );
 

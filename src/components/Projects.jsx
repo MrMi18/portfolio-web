@@ -54,7 +54,7 @@ const Projects = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 rounded-t-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
               
@@ -62,7 +62,7 @@ const Projects = () => {
               <div className="absolute top-4 right-4">
                 <Button
                   size="sm"
-                  className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 text-xs"
+                  className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 text-xs rounded-md"
                 >
                   <ExternalLink size={12} className="mr-1" />
                   Live
@@ -107,7 +107,7 @@ const Projects = () => {
                  onClick={() => window.open(project.githubUrl , "_blank", "noopener,noreferrer")}
                   size="sm"
                   variant="outline"
-                  className="border-gray-600 bg-white text-black hover:bg-gray-700 flex items-center gap-2"
+                  className="border-gray-600 bg-gray-700 text-white hover:text-white hover:bg-gray-700/50 flex items-center gap-2"
                 >
                   <Github size={14} />
                   Code
@@ -120,7 +120,7 @@ const Projects = () => {
       
       {/* View All Projects Link */}
       <div className="text-center pt-6">
-        <button className="text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-2 mx-auto">
+        <button className="text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-2 mx-auto" type="button" aria-label="View all projects">
           View all projects
           <ExternalLink size={16} />
         </button>

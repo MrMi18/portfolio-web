@@ -56,7 +56,7 @@ export default function Skills() {
         {skillCategories.map((category, index) => (
           <div
             key={category.name}
-            className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50 backdrop-blur-sm hover:border-gray-600/50 transition-all duration-300 hover:transform hover:scale-[1.02] animate-slide-up"
+            className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50 backdrop-blur-sm hover:border-gray-600/50 transition-all duration-300 transform-gpu hover:scale-[1.02] animate-slide-up"
             style={{ animationDelay: `${index * 0.08}s` }}
           >
             <h3 className="text-white mb-4 flex items-center gap-2">
@@ -66,7 +66,7 @@ export default function Skills() {
 
             <div className="flex flex-wrap gap-2">
               {category.skills.map((skill) => (
-                <span key={skill} className={`px-3 py-1.5 rounded-lg border text-sm transition-all duration-200 hover:scale-105 ${category.color}`}>
+                <span key={skill} className={`px-3 py-1 rounded-full border text-xs font-medium transition-all duration-200 hover:scale-105 ${category.color} border-gray-600/30`}>
                   {skill}
                 </span>
               ))}
