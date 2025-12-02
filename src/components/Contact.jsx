@@ -5,6 +5,7 @@ import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { Mail, MessageCircle, Send, ArrowRight, Twitter, Instagram } from "lucide-react";
 import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Contact = () => {
@@ -29,12 +30,34 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    toast.success("Message sent successfully! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-    setCharCount(0);
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast.error("Email service not configured. Please set EmailJS env vars.");
+      console.warn('Missing EmailJS env vars: set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY');
+      return;
+    }
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      toast.success("Message sent successfully! I'll get back to you soon.");
+      setFormData({ name: "", email: "", message: "" });
+      setCharCount(0);
+    } catch (err) {
+      console.error('EmailJS send error:', err);
+      toast.error("Failed to send message. Please try again later.");
+    }
   };
 
   const socialLinks = [
