@@ -42,7 +42,7 @@ const Hero = () => {
             <div className="flex items-center gap-3">
               <a href="https://github.com/mrmi18" className="p-2 rounded-full bg-gray-800/50 hover:bg-orange-500/20 border border-white/10 text-white/80 transition"><Github size={18} /></a>
               <a href="https://www.linkedin.com/in/imran-mohammad-360a2122a" className="p-2 rounded-full bg-gray-800/50 hover:bg-blue-600/10 border border-white/10 text-white/80 transition"><Linkedin size={18} /></a>
-              <a href="#" className="p-2 rounded-full bg-gray-800/50 hover:bg-pink-500/10 border border-white/10 text-white/80 transition"><X size={18} /></a>
+              <a href="https://x.com/MrMi21544106" className="p-2 rounded-full bg-gray-800/50 hover:bg-pink-500/10 border border-white/10 text-white/80 transition"><X size={18} /></a>
               <a href="https://www.instagram.com/mrmi_18" className="p-2 rounded-full bg-gray-800/50 hover:bg-pink-500/10 border border-white/10 text-white/80 transition"><Instagram size={18} /></a>
             </div>
 

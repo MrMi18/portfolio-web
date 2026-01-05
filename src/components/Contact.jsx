@@ -76,13 +76,13 @@ const Contact = () => {
     {
       name: "Twitter",
       icon: Twitter,
-      href: "#",
+      href: "https://x.com/MrMi21544106",
       label: "Twitter / X"
     },
     {
       name: "Instagram",
       icon: Instagram,
-      href: "https://www.instagram.com/mrmi_18",
+      href: "https://www.instagram.com/mr.mi_18/",
       label: "Instagram"
     }
   ];
