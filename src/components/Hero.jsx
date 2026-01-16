@@ -47,7 +47,7 @@ const Hero = () => {
             </div>
 
             <div className="hidden md:block mt-2 space-y-2">
-                     <button className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-white bg-transparent hover:bg-white/5 transition">Hire me</button>
+                     <a href="#contact" className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-white bg-transparent hover:bg-white/5 transition">Hire me</a>
                      <a href="/resume.pdf" download className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/10 text-white hover:bg-white/15 transition border border-white/10">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2m0 0v-8m0 8l-6-4m6 4l6-4" /></svg>
                 Download Resume
