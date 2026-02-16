@@ -43,11 +43,16 @@ const Contact = () => {
       return;
     }
 
+    // EmailJS template variable names must match the template on EmailJS dashboard.
+    // Your template uses {{name}} and {{email}} placeholders, so send those keys.
     const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
+      name: formData.name,
+      email: formData.email,
       message: formData.message,
+      to_email: 'imra.mohd1910@gmail.com'
     };
+
+    console.debug('EmailJS templateParams ->', templateParams);
 
     try {
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
@@ -64,7 +69,7 @@ const Contact = () => {
     {
       name: "Email",
       icon: Mail,
-      href: "mailto:imran.mohd1910@gmail.com",
+      href: "mailto:imra.mohd1910@gmail.com",
       label: "Email"
     },
     {
